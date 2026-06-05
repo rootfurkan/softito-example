@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span>Adınız Soyadınız</span>
+    <input type="text" id="adsoyad"><br><br>
+    <span>Telefon Numaranız</span>
+    <input type="number" id="telefon"> <br><br>
+    <span>Profil Resmi</span>
+    <input type="file" id="resim"> 
+    <button onclick="Gonder()">Gönder</button>
+
+    <div>
+        <h4>Profil Resmi</h4>
+        <img src="" alt="" id="gelenResim" width="150"><br><br>
+        <h4>Ad Soyad</h4>
+        <p id="gelenAd"></p><br><br>
+        <h4>Telefon Numarası</h4>
+        <a href="" id="gelenTel"></a>
+    </div>
+
+    <script>
+        let adSoyad = document.getElementById("adsoyad");
+        let tel = document.getElementById("telefon");
+        let pp = document.getElementById("resim");
+
+        function Gonder(){
+            document.getElementById("gelenAd").innerHTML = adSoyad.value;
+            document.getElementById("gelenTel").innerHTML = tel.value;
+
+            if (pp.files && pp.files[0]) {
+                let okuyucu = new FileReader();
+                okuyucu.onload = function(e) {
+                    document.getElementById("gelenResim").src = e.target.result;
+                }
+                okuyucu.readAsDataURL(pp.files[0]);
+            }
+        }
+    </script>
+</body>
+</html>

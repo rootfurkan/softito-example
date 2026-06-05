@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kişi Sorgulama</title>
+</head>
+<body>
+    <h1>Kişi Sorgulama Sistemi</h1>
+    <input type="number" placeholder="TC No Girin.." id="giris">
+    <h4>İlgili Kişi:</h4>
+    <p id="veri"></p>
+
+<script>
+    const kisiler = [
+        { tc: 123, isim: "Furkan", soyisim: "Yorulmaz", yaş: 24 },
+        { tc: 12345, isim: "Ayşenur", soyisim: "Akgün", yaş: 21 }
+    ];
+
+    const girilenTc = document.getElementById("giris");
+    const veriAlani = document.getElementById("veri");
+
+    girilenTc.addEventListener("input", function() {
+        const arananTc = Number(girilenTc.value);
+        const bulunanKisi = kisiler.find(kisi => kisi.tc === arananTc);
+
+        if (bulunanKisi) {
+            veriAlani.innerHTML = `${bulunanKisi.isim} ${bulunanKisi.soyisim} (${bulunanKisi.yaş})`;
+        } else {
+            veriAlani.innerHTML = "Kişi bulunamadı.";
+        }
+    });
+</script>
+</body>
+</html>
