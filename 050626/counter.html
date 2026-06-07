@@ -20,19 +20,36 @@
         const box = document.getElementById('box');
         const number = document.getElementById('number');
 
-        function change(e){
+        const greenShades = [
+            "bg-green-100", "bg-green-200", "bg-green-300",
+            "bg-green-400", "bg-green-500", "bg-green-600",
+            "bg-green-700", "bg-green-800", "bg-green-900"
+        ];
+        const redShades = [
+            "bg-red-100", "bg-red-200", "bg-red-300",
+            "bg-red-400", "bg-red-500", "bg-red-600",
+            "bg-red-700", "bg-red-800", "bg-red-900"
+        ];
+
+        let greenLevel = 0;
+        let redLevel = 0;
+        let base = "p-8 rounded-xl shadow text-center transition-colors duration-300";
+
+        function change(e) {
             count += e;
-            console.log(count);
             number.textContent = count;
 
-            if (count > 0){
-                box.className = "bg-green-500 p-8 rounded-xl shadow text-center transition-colors duration-300"
-            } else if(count < 0 ){
-                box.className = "bg-red-500 p-8 rounded-xl shadow text-center transition-colors duration-300"
-            } else{
-                box.className = "bg-white-500 p-8 rounded-xl shadow text-center transition-colors duration-300"
+            if (count > 0) {
+                greenLevel = Math.min(greenLevel + 1, greenShades.length - 1);
+                box.className = greenShades[greenLevel - 1] + " " + base;
+            } else if (count < 0) {
+                redLevel = Math.min(redLevel + 1, redShades.length - 1);
+                box.className = redShades[redLevel - 1] + " " + base;
+            } else {
+                greenLevel = 0;
+                redLevel = 0;
+                box.className = "bg-white " + base;
             }
-
         }
     </script>
 </body>
