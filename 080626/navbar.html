@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"/>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col items-center justify-center gap-6">
+    <div class="max-w-md text-center mx-auto">
+        <h1 class="text-xl font-bold text-gray-900 mb-2">Navigasyon Navbar Sistemi</h1>
+        <p class="text-xs text-gray-500">Mobilde gizlenen hamburger menü</p>
+    </div>
+    <nav class="w-full max-w-2xl bg-white border border-gray-200 rounded-xl p-4 shadow-sm mx-auto">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="font-extrabold text-xs tracking-wider text-indigo-600">Furkan YORULMAZ</span>
+            </div>
+            <div class="hidden md:flex gap-4 text-[10px] font-bold text-gray-500">
+                <span class="text-indigo-600 cursor-pointer hover:text-gray-900">Hakkımızda</span>
+                <span class="text-indigo-600 hover:text-gray-900 cursor-pointer">Hizmetler</span>
+                <span class="text-indigo-600 hover:text-gray-900 text-indigo-600 cursor-pointer">Projeler</span>
+                <span class="text-indigo-600 hover:text-gray-900 text-indigo-600 cursor-pointer">iletişim</span>
+            </div>
+            <button onclick="toggleMenu()" class="block md:hidden px-3 py-1 bg-gray-50 border border-gray-200 rounded text-[9px] font-extrabold text-gray-700 hover:bg-gray-100 transition-colors">Menü</button>
+        </div>
+        <div id="mobile-menu" class="hidden mt-4 pt-4 border-t border-gray-100 flex-col gap-2 text-xs font-semibold text-gray-650">
+                <span class="text-indigo-600 cursor-pointer hover:text-gray-900 block">Hakkımızda</span>
+                <span class="text-indigo-600 hover:text-gray-900 cursor-pointer block">Hizmetler</span>
+                <span class="text-indigo-600 hover:text-gray-900 text-indigo-600 cursor-pointer block">Projeler</span>
+                <span class="text-indigo-600 hover:text-gray-900 text-indigo-600 cursor-pointer block">iletişim</span>
+        </div>
+    </nav>
+
+    <script>
+        function toggleMenu(){
+            let menu = document.getElementById("mobile-menu");
+            if (menu.classList.contains('hidden')){
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+            }
+            else{
+                menu.classList.remove('flex');
+                menu.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
