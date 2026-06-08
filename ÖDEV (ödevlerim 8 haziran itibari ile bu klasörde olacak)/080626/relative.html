@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relative Örnekleri</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"/>
+</head>
+<body class="bg-gray-100 p-10 space-y-6">
+
+  <!-- relative bir kutuya konum verir içindeki elemanlar ona göre yerleşir -->
+
+  <div class="relative bg-white w-48 h-24 rounded">
+    <span class="absolute top-0 right-0 bg-red-500 text-white text-xs px-2 py-1 rounded">Yeni</span>
+    <p class="p-4 text-sm">Ürün Kartı</p>
+  </div>
+
+  <div class="relative bg-white w-48 h-24 rounded">
+    <span class="absolute bottom-0 left-0 bg-blue-500 text-white text-xs px-2 py-1 rounded">Sol Alt</span>
+    <p class="p-4 text-sm">Ürün Kartı</p>
+  </div>
+
+  <div class="relative bg-white w-48 h-24 rounded">
+    <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-green-500 text-white text-xs px-2 py-1 rounded">Tam Orta</span>
+  </div>
+
+  <div class="relative bg-white w-48 h-24 rounded">
+    <div class="absolute inset-0 bg-black opacity-40 rounded"></div>
+    <p class="relative z-10 text-white p-4 text-sm">Karartma Efekti</p>
+  </div>
+
+  <div class="relative bg-white w-48 h-24 rounded">
+    <span class="absolute top-2 right-2 bg-yellow-400 text-xs px-2 py-1 rounded">z-10</span>
+    <span class="absolute top-4 right-4 bg-orange-400 text-xs px-2 py-1 rounded z-20">z-20 önde</span>
+  </div>
+
+</body>
+</html>
