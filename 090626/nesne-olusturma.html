@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nesne Oluşturma</title>
+</head>
+<body>
+    <div>
+        <h1>Property ve method</h1>
+    </div>
+    <div>
+        <h3>Nesne Oluşturma</h3>
+    </div>
+    <div>
+        <label for="input-brand">marka</label>
+        <input type="text" id="input-brand" value="Apple">
+    </div>
+    <div>
+        <label for="input-price">Fiyat</label>
+        <input type="number" id="input-price" value="50000">
+    </div>
+    <div>
+        <button style="border:2px solid black" id="btn-build">Oluştur</button>
+        <div id="result">Oluşturulmadı</div>
+    </div>
+
+    <script>
+        document.getElementById('btn-build').addEventListener('click', ()=>{
+            const marka = document.getElementById('input-brand').value;
+            const fiyat = document.getElementById('input-price').value;
+            const cihaz = {
+                marka,
+                fiyat,
+                bilgi(){
+                    return `${this.marka} markalı cihaz, ${this.fiyat}  TL Fiyatında`;
+                }
+            }
+            document.getElementById('result').innerHTML = `
+                <div>olusan nesne : ${JSON.stringify({marka: cihaz.marka, fiyat : cihaz.fiyat })} </div>
+                <div> cihaz bilgi sonucu : <span>${cihaz.bilgi()}</span></div>
+            
+            `;
+        })
+    </script>
+</body>
+</html>
