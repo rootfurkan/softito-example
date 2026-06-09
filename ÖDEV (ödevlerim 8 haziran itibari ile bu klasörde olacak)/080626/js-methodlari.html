@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Metodları</title>
+</head>
+<body>
+
+  <h1>JS Metodları</h1>
+
+  <div>
+    <p>map - diziyi dönüştürür</p>
+    <div id='map'></div>
+  </div>
+
+  <div>
+    <p>find - ilk eşleşeni bulur</p>
+    <div id='find'></div>
+  </div>
+
+  <div>
+    <p>reduce - diziyi tek değere indirir</p>
+    <div id='reduce'></div>
+  </div>
+
+  <div>
+    <p>filter - koşula uyanları seçer</p>
+    <div id='filter'></div>
+  </div>
+
+  <div>
+    <p>some - biri uyuyorsa true döner</p>
+    <div id='some'></div>
+  </div>
+
+  <div>
+    <p>every - hepsi uyuyorsa true döner</p>
+    <div id='every'></div>
+  </div>
+
+  <div>
+    <p>push - diziye eleman ekler</p>
+    <div id='push'></div>
+  </div>
+
+  <div>
+    <p>includes - eleman var mı kontrol eder</p>
+    <div id='includes'></div>
+  </div>
+
+  <div>
+    <p>toLowerCase - harfleri küçültür</p>
+    <div id='toLowerCase'></div>
+  </div>
+
+  <div>
+    <p>toUpperCase - harfleri büyütür</p>
+    <div id='toUpperCase'></div>
+  </div>
+
+  <div>
+    <p>trim - baş sondaki boşlukları siler</p>
+    <div id='trim'></div>
+  </div>
+
+  <div>
+    <p>split - yazıyı diziye böler</p>
+    <div id='split'></div>
+  </div>
+
+  <div>
+    <p>join - diziyi yazıya birleştirir</p>
+    <div id='join'></div>
+  </div>
+
+  <div>
+    <p>parseFloat - yazıyı sayıya çevirir</p>
+    <div id='parseFloat'></div>
+  </div>
+
+  <div>
+    <p>setInterval ve clearInterval - belirli aralıkla çalıştırır ve durdurur</p>
+    <div id='interval'></div>
+  </div>
+
+  <script>
+    const sayilar = [1, 2, 3, 4, 5]
+    const isimler = ['ali', 'furkan', 'okan']
+
+    document.getElementById('map').textContent = sayilar.map(sayi => sayi * 2)
+    document.getElementById('find').textContent = sayilar.find(sayi => sayi > 3)
+    document.getElementById('reduce').textContent = sayilar.reduce((toplam, sayi) => toplam + sayi, 0)
+    document.getElementById('filter').textContent = sayilar.filter(sayi => sayi > 2)
+    document.getElementById('some').textContent = sayilar.some(sayi => sayi > 4)
+    document.getElementById('every').textContent = sayilar.every(sayi => sayi > 0)
+
+
+    const yeniDizi = [1, 2, 3]
+    yeniDizi.push(4)
+    document.getElementById('push').textContent = yeniDizi
+
+    document.getElementById('includes').textContent = isimler.includes('ali')
+    document.getElementById('toLowerCase').textContent = 'SOFTITO'.toLowerCase()
+    document.getElementById('toUpperCase').textContent = 'softito'.toUpperCase()
+    document.getElementById('trim').textContent = '   boşluk var   '.trim()
+    document.getElementById('split').textContent = 'ali,furkan,okan'.split(',')
+    document.getElementById('join').textContent = ['ali', 'furkan', 'okan'].join(' - ')
+    document.getElementById('parseFloat').textContent = parseFloat('3.14')
+
+    let sayac = 0
+    const timer = setInterval(() => {
+      sayac++
+      document.getElementById('interval').textContent = sayac + ' kez çalıştı'
+      if (sayac === 50) clearInterval(timer)
+    }, 1000)
+  </script>
+
+</body>
+</html>
