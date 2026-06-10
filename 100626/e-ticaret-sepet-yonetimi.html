@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axios</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.17.0/dist/axios.min.js"></script>
+</head>
+<body class="p-6 bg-gray-200">
+    <div class="p-6 bg-white">
+        <h1 class="text-xl font-bold">E-ticaret sepet yönetimi</h1>
+        <div class="p-4 border">
+            <h2 class="text-lg font-bold">
+                Ürün katalog
+            </h2>
+            <div class="mb-2">
+                <input type="text" id="search-input" class="p-2 border" placeholder="Ürün Adı Girin..">
+            </div>
+            <button id="btn-search" class="p-2 bg-blue-200">Katalog Güncelle</button>
+            <div class="mt-4 space-y-2" id="product-list">
+                <p class="text-gray-500">Ürün listesini yüklemek için butona tıklayın</p>
+            </div>
+        </div>
+        <div class="mt-2"></div>
+        <div class="p-4 border">
+            <h2 class="text-lg font-bold">Alışveriş Sepeti</h2>
+            <ul class="list-disc pl-5 space-y-5" id="cart-list">
+                <li>sepetiniz boş</li>
+            </ul>
+            <div class="mt-2 font-bold">
+                Toplam Tutar: <span id="cart-total">0</span>TL
+            </div>
+            <button id="btn-checkout" class="p-2 bg-green-200 mt-2">Alışverişi Tamamla</button>
+        </div>
+        <div id="status" class="p-2 border">
+            sistem hazır
+        </div>
+    </div>
+
+    <script>
+        const yedekUrunler = [
+            {"id" : 1 , "title" : 'akıllı telefon', "kategori" : 'elektronik' , "fiyat" : '15000', 'stok': 5},
+            {"id" : 2 , "title" : 'bilgisayar', "kategori" : 'elektronik' , "fiyat" : '50000', 'stok': 50},
+            {"id":3,"title":"Laptop","kategori":"elektronik","fiyat":"32000","stok":8},
+            {"id":4,"title":"Kulaklık","kategori":"aksesuar","fiyat":"2500","stok":15},
+            {"id":5,"title":"Klavye","kategori":"bilgisayar","fiyat":"1800","stok":12},
+            {"id":6,"title":"Masa Lambası","kategori":"ev","fiyat":"950","stok":20},
+            {"id":7,"title":"Spor Ayakkabı","kategori":"giyim","fiyat":"4200","stok":10}
+        ]
+        let sepet = [];
+
+        const urunleriSorgula = async()=>{
+            const searchValue = document.getElementById('search-input').value.toLowerCase();
+            const listDiv = document.getElementById('product-list');
+            const status = document.getElementById('status');
+            status.innerText = "ürünler listeleniyor..";
+            status.className = 'p-2 border';
+
+            let urunler = [];
+            try{
+                const response  = await axios.get('https://kodusta.com/api/urunler.json');
+                urunler=response.data
+            }catch(hata){
+                console.warn('cors hatası veya bağlantı hatası');
+                urunler = yedekUrunler;
+            }
+            const filtrelenmis = urunler.filter(u=>title.toLowerCase().includes(searchVal));
+            listDiv.innerHTML = '';
+            if(filtrelenmis.lenght === 0){
+                listDiv.innerHTML = ' <p class="p-2 text-red-500">ürün bulunamadı </p>';
+                return;
+            }
+            filtrelenmis.forEach(urun => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'p-2 border';
+                
+                itemDiv.innerHTML = `<strong>${urun.title}</strong> - Kategori: ${urun.kategori}<br> - Fiyat: ${urun.fiyat} TL | 
+                Stok: ${urun.stok > 0 ? urun.stok: 'tukenmis'}<br> <button class="bg-yellow-200 text-sm" onclick ="sepeteEkleTiklandi(${urun.id})">Sepete Ekle </button> `;
+                listDiv.appendChild(itemDiv);
+
+            });
+        }
+    </script>
+</body>
+</html>
