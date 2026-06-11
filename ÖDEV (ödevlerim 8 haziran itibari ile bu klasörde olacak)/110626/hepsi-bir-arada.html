@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Örnekleri</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"/>
+</head>
+<body class="p-6 bg-gray-100">
+
+    <div class="p-4 bg-white mb-4">
+        <h3 class="font-bold mb-2">let / const</h3>
+        <button id="btn-let" class="p-2 bg-blue-200">Skoru Arttır</button>
+        <div id="result-let" class="mt-2">Skor: 0</div>
+    </div>
+
+    <div class="p-4 bg-white mb-4">
+        <h3 class="font-bold mb-2">Arrow Function</h3>
+        <input type="number" id="input-sayi" value="4" class="border p-1 mr-2">
+        <button id="btn-kare" class="p-2 bg-green-200">Karesini Al</button>
+        <div id="result-kare" class="mt-2">Sonuç bekleniyor</div>
+    </div>
+
+    <div class="p-4 bg-white mb-4">
+        <h3 class="font-bold mb-2">Template Literal</h3>
+        <input type="text" id="input-ad" value="Ahmet" class="border p-1 mr-2">
+        <input type="number" id="input-yas" value="25" class="border p-1 mr-2">
+        <button id="btn-tanitim" class="p-2 bg-yellow-200">Tanıt</button>
+        <div id="result-tanitim" class="mt-2">Sonuç bekleniyor</div>
+    </div>
+
+    <div class="p-4 bg-white mb-4">
+        <h3 class="font-bold mb-2">getElementById / innerText</h3>
+        <input type="text" id="input-metin" value="merhaba" class="border p-1 mr-2">
+        <button id="btn-goster" class="p-2 bg-purple-200">Göster</button>
+        <div id="result-metin" class="mt-2">Sonuç bekleniyor</div>
+    </div>
+
+    <div class="p-4 bg-white mb-4">
+        <h3 class="font-bold mb-2">addEventListener</h3>
+        <input type="text" id="input-yaz" placeholder="bir şeyler yaz..." class="border p-1 mr-2">
+        <div id="result-addEventListener" class="mt-2">Karakter: 0</div>
+    </div>
+
+    <div class="p-4 bg-white mb-4">
+        <h3 class="font-bold mb-2">classList</h3>
+        <button id="btn-renk" class="p-2 bg-gray-200">Renk Değiştir</button>
+        <div id="result-classList" class="mt-2 p-4 bg-gray-200">Bu kutu renk değiştirir</div>
+    </div>
+
+    <div class="p-4 bg-white mb-4">
+        <h3 class="font-bold mb-2">Array.map()</h3>
+        <input type="text" id="input-map" value="1,2,3,4,5" class="border p-1 mr-2">
+        <button id="btn-map" class="p-2 bg-blue-200">İkiye Katla</button>
+        <div id="result-map" class="mt-2">Sonuç bekleniyor</div>
+    </div>
+
+    <div class="p-4 bg-white mb-4">
+        <h3 class="font-bold mb-2">Array.filter()</h3>
+        <input type="text" id="input-filter" value="1,2,3,4,5,6,7,8" class="border p-1 mr-2">
+        <button id="btn-filter" class="p-2 bg-green-200">Çift Sayıları Göster</button>
+        <div id="result-filter" class="mt-2">Sonuç bekleniyor</div>
+    </div>
+
+    <div class="p-4 bg-white mb-4">
+        <h3 class="font-bold mb-2">Array.reduce()</h3>
+        <input type="text" id="input-reduce" value="10,20,30,40" class="border p-1 mr-2">
+        <button id="btn-reduce" class="p-2 bg-yellow-200">Topla</button>
+        <div id="result-reduce" class="mt-2">Sonuç bekleniyor</div>
+    </div>
+
+    <div class="p-4 bg-white mb-4">
+        <h3 class="font-bold mb-2">Array.forEach()</h3>
+        <input type="text" id="input-forEach" value="elma,armut,muz" class="border p-1 mr-2">
+        <button id="btn-forEach" class="p-2 bg-pink-200">Listele</button>
+        <div id="result-forEach" class="mt-2">Sonuç bekleniyor</div>
+    </div>
+
+    <div class="p-4 bg-white mb-4">
+        <h3 class="font-bold mb-2">Array.find()</h3>
+        <input type="number" id="input-find" value="15" class="border p-1 mr-2">
+        <button id="btn-find" class="p-2 bg-indigo-200">Bul</button>
+        <div id="result-find" class="mt-2">Sonuç bekleniyor</div>
+    </div>
+
+    <div class="p-4 bg-white mb-4">
+        <h3 class="font-bold mb-2">Array.push() / includes()</h3>
+        <input type="text" id="input-push" placeholder="kelime gir" class="border p-1 mr-2">
+        <button id="btn-push" class="p-2 bg-red-200">Ekle</button>
+        <div id="result-push" class="mt-2">Liste: []</div>
+    </div>
+
+    <div class="p-4 bg-white mb-4">
+        <h3 class="font-bold mb-2">String Metodları</h3>
+        <input type="text" id="input-string" value="  Merhaba Dünya  " class="border p-1 mr-2 w-48">
+        <button id="btn-string" class="p-2 bg-teal-200">Uygula</button>
+        <div id="result-string" class="mt-2">Sonuç bekleniyor</div>
+    </div>
+
+    <div class="p-4 bg-white mb-4">
+        <h3 class="font-bold mb-2">Spread Operatörü</h3>
+        <button id="btn-spread" class="p-2 bg-blue-200">Birleştir</button>
+        <div id="result-spread" class="mt-2">Sonuç bekleniyor</div>
+    </div>
+
+    <div class="p-4 bg-white mb-4">
+        <h3 class="font-bold mb-2">Destructuring</h3>
+        <button id="btn-destructuring" class="p-2 bg-green-200">Ayrıştır</button>
+        <div id="result-destructuring" class="mt-2">Sonuç bekleniyor</div>
+    </div>
+
+    <div class="p-4 bg-white mb-4">
+        <h3 class="font-bold mb-2">Rest Parametresi</h3>
+        <input type="text" id="input-rest" value="5,10,15,20" class="border p-1 mr-2">
+        <button id="btn-rest" class="p-2 bg-yellow-200">Topla</button>
+        <div id="result-rest" class="mt-2">Sonuç bekleniyor</div>
+    </div>
+
+    <div class="p-4 bg-white mb-4">
+        <h3 class="font-bold mb-2">Object Shorthand</h3>
+        <input type="text" id="input-marka" value="Apple" class="border p-1 mr-2">
+        <input type="number" id="input-fiyat" value="50000" class="border p-1 mr-2">
+        <button id="btn-nesne" class="p-2 bg-purple-200">Nesne Oluştur</button>
+        <div id="result-nesne" class="mt-2">Sonuç bekleniyor</div>
+    </div>
+
+    <div class="p-4 bg-white mb-4">
+        <h3 class="font-bold mb-2">JSON.stringify() / JSON.parse()</h3>
+        <input type="text" id="input-json-ad" value="Veli" class="border p-1 mr-2">
+        <input type="number" id="input-json-yas" value="30" class="border p-1 mr-2">
+        <button id="btn-json" class="p-2 bg-orange-200">Dönüştür</button>
+        <div id="result-json" class="mt-2">Sonuç bekleniyor</div>
+    </div>
+
+    <div class="p-4 bg-white mb-4">
+        <h3 class="font-bold mb-2">parseInt / Number</h3>
+        <input type="text" id="input-tip" value="42.7" class="border p-1 mr-2">
+        <button id="btn-tip" class="p-2 bg-blue-200">Dönüştür</button>
+        <div id="result-tip" class="mt-2">Sonuç bekleniyor</div>
+    </div>
+
+    <div class="p-4 bg-white mb-4">
+        <h3 class="font-bold mb-2">try / catch</h3>
+        <button id="btn-hata" class="p-2 bg-red-200">Hata Üret</button>
+        <div id="result-hata" class="mt-2">Sonuç bekleniyor</div>
+    </div>
+
+    <div class="p-4 bg-white mb-4">
+        <h3 class="font-bold mb-2">setTimeout</h3>
+        <button id="btn-timeout" class="p-2 bg-pink-200">2 Saniye Sonra Göster</button>
+        <div id="result-timeout" class="mt-2">Sonuç bekleniyor</div>
+    </div>
+
+    <div class="p-4 bg-white mb-4">
+        <h3 class="font-bold mb-2">setInterval / clearInterval</h3>
+        <button id="btn-baslat" class="p-2 bg-green-200 mr-2">Başlat</button>
+        <button id="btn-durdur" class="p-2 bg-red-200">Durdur</button>
+        <div id="result-interval" class="mt-2">0</div>
+    </div>
+
+    <div class="p-4 bg-white mb-4">
+        <h3 class="font-bold mb-2">Promise</h3>
+        <input type="number" id="input-promise" value="7" class="border p-1 mr-2">
+        <button id="btn-promise" class="p-2 bg-indigo-200">Çalıştır</button>
+        <div id="result-promise" class="mt-2">Sonuç bekleniyor</div>
+    </div>
+
+    <div class="p-4 bg-white mb-4">
+        <h3 class="font-bold mb-2">Async / Await</h3>
+        <button id="btn-async" class="p-2 bg-teal-200">Siparişi Getir</button>
+        <div id="result-async" class="mt-2">Sonuç bekleniyor</div>
+    </div>
+
+    <div class="p-4 bg-white mb-4">
+        <h3 class="font-bold mb-2">Fetch API</h3>
+        <button id="btn-fetch" class="p-2 bg-blue-200">Veri Çek</button>
+        <div id="result-fetch" class="mt-2">Sonuç bekleniyor</div>
+    </div>
+
+    <script>
+        let skor = 0;
+        document.getElementById('btn-let').addEventListener('click', ()=>{
+            skor = skor + 5;
+            document.getElementById('result-let').innerText = 'Skor: ' + skor;
+        })
+
+        document.getElementById('btn-kare').addEventListener('click', ()=>{
+            const karesi = x => x * x;
+            const sayi = parseFloat(document.getElementById('input-sayi').value);
+            document.getElementById('result-kare').innerText = sayi + ' nin karesi: ' + karesi(sayi);
+        })
+
+        document.getElementById('btn-tanitim').addEventListener('click', ()=>{
+            const ad = document.getElementById('input-ad').value;
+            const yas = document.getElementById('input-yas').value;
+            document.getElementById('result-tanitim').innerText = `Adım ${ad}, yaşım ${yas}`;
+        })
+
+        document.getElementById('btn-goster').addEventListener('click', ()=>{
+            const metin = document.getElementById('input-metin').value;
+            document.getElementById('result-metin').innerText = 'Okunan metin: ' + metin;
+        })
+
+        document.getElementById('input-yaz').addEventListener('input', ()=>{
+            const metin = document.getElementById('input-yaz').value;
+            document.getElementById('result-addEventListener').innerText = 'Karakter: ' + metin.length;
+        })
+
+        const renkler = ['bg-red-200', 'bg-green-200', 'bg-blue-200', 'bg-yellow-200'];
+        let renkIdx = 0;
+        document.getElementById('btn-renk').addEventListener('click', ()=>{
+            const kutu = document.getElementById('result-classList');
+            kutu.classList.remove(renkler[(renkIdx - 1 + renkler.length) % renkler.length]);
+            kutu.classList.add(renkler[renkIdx % renkler.length]);
+            renkIdx++;
+        })
+
+        document.getElementById('btn-map').addEventListener('click', ()=>{
+            const sayilar = document.getElementById('input-map').value.split(',').map(Number);
+            const sonuc = sayilar.map(n => n * 2);
+            document.getElementById('result-map').innerText = JSON.stringify(sayilar) + ' → ' + JSON.stringify(sonuc);
+        })
+
+        document.getElementById('btn-filter').addEventListener('click', ()=>{
+            const sayilar = document.getElementById('input-filter').value.split(',').map(Number);
+            const ciftler = sayilar.filter(n => n % 2 === 0);
+            document.getElementById('result-filter').innerText = 'Çift sayılar: ' + JSON.stringify(ciftler);
+        })
+
+        document.getElementById('btn-reduce').addEventListener('click', ()=>{
+            const sayilar = document.getElementById('input-reduce').value.split(',').map(Number);
+            const toplam = sayilar.reduce((toplam, n) => toplam + n, 0);
+            document.getElementById('result-reduce').innerText = sayilar.join(' + ') + ' = ' + toplam;
+        })
+
+        document.getElementById('btn-forEach').addEventListener('click', ()=>{
+            const meyveler = document.getElementById('input-forEach').value.split(',');
+            let liste = '';
+            meyveler.forEach((meyve, i) => {
+                liste += (i + 1) + '. ' + meyve + '  ';
+            })
+            document.getElementById('result-forEach').innerText = liste;
+        })
+
+        const sayiDizisi = [5, 10, 15, 20, 25];
+        document.getElementById('btn-find').addEventListener('click', ()=>{
+            const aranan = Number(document.getElementById('input-find').value);
+            const bulunan = sayiDizisi.find(n => n === aranan);
+            document.getElementById('result-find').innerText = bulunan
+                ? aranan + ' dizide bulundu. Dizi: ' + sayiDizisi
+                : aranan + ' dizide yok. Dizi: ' + sayiDizisi;
+        })
+
+        const kelimeler = [];
+        document.getElementById('btn-push').addEventListener('click', ()=>{
+            const yeni = document.getElementById('input-push').value.trim();
+            if(!yeni) return;
+            const varMi = kelimeler.includes(yeni);
+            if(!varMi) kelimeler.push(yeni);
+            document.getElementById('result-push').innerText = varMi
+                ? '"' + yeni + '" zaten var! Liste: ' + kelimeler
+                : '"' + yeni + '" eklendi. Liste: ' + kelimeler;
+            document.getElementById('input-push').value = '';
+        })
+
+        document.getElementById('btn-string').addEventListener('click', ()=>{
+            const metin = document.getElementById('input-string').value;
+            document.getElementById('result-string').innerText =
+                'trim: "' + metin.trim() + '" | büyük: ' + metin.trim().toUpperCase() + ' | küçük: ' + metin.trim().toLowerCase();
+        })
+
+        document.getElementById('btn-spread').addEventListener('click', ()=>{
+            const dizi1 = [1, 2, 3];
+            const dizi2 = [4, 5, 6];
+            const birlesik = [...dizi1, ...dizi2];
+            const nesne1 = {tema: 'koyu'};
+            const nesne2 = {dil: 'tr'};
+            const birlesikNesne = {...nesne1, ...nesne2};
+            document.getElementById('result-spread').innerText =
+                'Dizi: ' + JSON.stringify(birlesik) + ' | Nesne: ' + JSON.stringify(birlesikNesne);
+        })
+
+        document.getElementById('btn-destructuring').addEventListener('click', ()=>{
+            const [ilk, ikinci, ...kalan] = [10, 20, 30, 40];
+            const {ad, sehir = 'Ankara'} = {ad: 'Mehmet'};
+            document.getElementById('result-destructuring').innerText =
+                'Dizi: ilk=' + ilk + ' ikinci=' + ikinci + ' kalan=' + kalan + ' | Nesne: ad=' + ad + ' sehir=' + sehir;
+        })
+
+        document.getElementById('btn-rest').addEventListener('click', ()=>{
+            const topla = (...sayilar) => sayilar.reduce((t, n) => t + n, 0);
+            const girilenler = document.getElementById('input-rest').value.split(',').map(Number);
+            document.getElementById('result-rest').innerText = 'topla(' + girilenler + ') = ' + topla(...girilenler);
+        })
+
+        document.getElementById('btn-nesne').addEventListener('click', ()=>{
+            const marka = document.getElementById('input-marka').value;
+            const fiyat = document.getElementById('input-fiyat').value;
+            const cihaz = {marka, fiyat};
+            document.getElementById('result-nesne').innerText = JSON.stringify(cihaz);
+        })
+
+        document.getElementById('btn-json').addEventListener('click', ()=>{
+            const ad = document.getElementById('input-json-ad').value;
+            const yas = Number(document.getElementById('input-json-yas').value);
+            const kisi = {ad, yas};
+            const jsonMetni = JSON.stringify(kisi);
+            const geriCevrildi = JSON.parse(jsonMetni);
+            document.getElementById('result-json').innerText =
+                'stringify: ' + jsonMetni + ' | parse sonrası ad: ' + geriCevrildi.ad;
+        })
+
+        document.getElementById('btn-tip').addEventListener('click', ()=>{
+            const deger = document.getElementById('input-tip').value;
+            document.getElementById('result-tip').innerText =
+                'Number: ' + Number(deger) + ' | parseInt: ' + parseInt(deger) + ' | parseFloat: ' + parseFloat(deger);
+        })
+
+        document.getElementById('btn-hata').addEventListener('click', ()=>{
+            try {
+                const sabit = 100;
+                sabit = 200;
+            } catch(hata) {
+                document.getElementById('result-hata').innerText = 'Hata yakalandı: ' + hata.message;
+            }
+        })
+
+        document.getElementById('btn-timeout').addEventListener('click', ()=>{
+            document.getElementById('result-timeout').innerText = 'Bekleniyor...';
+            setTimeout(()=>{
+                document.getElementById('result-timeout').innerText = '2 saniye geçti!';
+            }, 2000)
+        })
+
+        let sayac = 0;
+        let intervalId = null;
+        document.getElementById('btn-baslat').addEventListener('click', ()=>{
+            if(intervalId) return;
+            intervalId = setInterval(()=>{
+                sayac++;
+                document.getElementById('result-interval').innerText = sayac;
+            }, 1000)
+        })
+        document.getElementById('btn-durdur').addEventListener('click', ()=>{
+            clearInterval(intervalId);
+            intervalId = null;
+        })
+
+        document.getElementById('btn-promise').addEventListener('click', ()=>{
+            const sayi = Number(document.getElementById('input-promise').value);
+            new Promise((resolve, reject)=>{
+                if(sayi > 5) resolve(sayi + ' > 5, başarılı!');
+                else reject(sayi + ' <= 5, başarısız!');
+            })
+            .then(mesaj => document.getElementById('result-promise').innerText = mesaj)
+            .catch(hata => document.getElementById('result-promise').innerText = hata)
+        })
+
+        const kullaniciyiGetir = ()=>{
+            return new Promise(resolve => setTimeout(()=> resolve({ad: 'Onur'}), 1000))
+        }
+        const sepetiGetir = (kullanici)=>{
+            return new Promise(resolve => setTimeout(()=> resolve({sahip: kullanici.ad, urunler: ['telefon', 'laptop']}), 1000))
+        }
+        document.getElementById('btn-async').addEventListener('click', async ()=>{
+            const output = document.getElementById('result-async');
+            output.innerText = 'Kullanıcı getiriliyor...';
+            const kullanici = await kullaniciyiGetir();
+            output.innerText = kullanici.ad + ' bulundu, sepet yükleniyor...';
+            const sepet = await sepetiGetir(kullanici);
+            output.innerText = sepet.sahip + ' - ' + sepet.urunler.join(', ');
+        })
+
+        document.getElementById('btn-fetch').addEventListener('click', ()=>{
+            const output = document.getElementById('result-fetch');
+            output.innerText = 'Veri çekiliyor...';
+            fetch('https://jsonplaceholder.typicode.com/todos/1')
+                .then(res => res.json())
+                .then(data => {
+                    output.innerText = 'id: ' + data.id + ' | başlık: ' + data.title;
+                })
+                .catch(()=> output.innerText = 'Hata oluştu')
+        })
+    </script>
+</body>
+</html>
