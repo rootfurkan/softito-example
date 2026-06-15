@@ -4,6 +4,7 @@ import Toggle from "./components/Toggle";
 import Object from "./components/Object";
 import ArrayState from "./components/ArrayState";
 import MultipleInputs from "./components/MultipleInput";
+import Demo11Project from "./components/Demo11Project";
 
 function App() {
   const [sayfa, setSayfa] = useState(1);
@@ -20,6 +21,8 @@ function App() {
         return <ArrayState />;
       case 5:
         return <MultipleInputs />;
+      case 6:
+        return <Demo11Project />;
       default:
         return <Counter />;
     }
@@ -45,6 +48,10 @@ function App() {
     {
       id: 5,
       ad: "Demo 5 Multiple Inputs",
+    },
+    {
+      id: 6,
+      ad: "Demo 11 Personel Yönetim",
     },
     
   ];
