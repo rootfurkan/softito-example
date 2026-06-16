@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 
-export default function Baslik({ env, sepetAdedi, onSepetAc, searchVal, onSearchChange }) {
-  const [windowSize, setWindowSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight
+export default function Baslik({ env, sepetAdedi, onSepetAc, searchVal, onSearchChange }) { //dışardan propslar aldık
+  const [windowSize, setWindowSize] = useState({ //ekran boyutunu tutmak için state oluşturduk
+    width: window.innerWidth, //tarayıcı penceresinin genişliğini al
+    height: window.innerHeight // tarayıcı penceresinin yüksekliğini al
   });
 
   useEffect(() => {
@@ -11,18 +11,18 @@ export default function Baslik({ env, sepetAdedi, onSepetAc, searchVal, onSearch
       setWindowSize({
         width: window.innerWidth,
         height: window.innerHeight
-      });
+      }); //tarayıcı penceresi küçültüldüğünde veya büyütüldüğünde değerleri günceller
     };
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize); //tarayıcı penceresine boyut değişip değişmediğini anlamak için dinleyici koyulur
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", handleResize); // fonksiyon tekrardan çalışacak olursa eski değeri siler
     };
   }, []);
 
   const getEnvName = (cat) => {
-    if (cat === "all") return "TÜM KATEGORİLER";
-    return cat.toUpperCase();
+    if (cat === "all") return "TÜM KATEGORİLER"; // eğer kategori adı tümü ise tüm kategoriler yazdırır 
+    return cat.toUpperCase(); // eğer tümü değilse kateogri adını büyük harfe çevirip döndürür
   };
 
   return (

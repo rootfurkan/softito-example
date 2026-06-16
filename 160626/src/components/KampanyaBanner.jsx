@@ -1,20 +1,20 @@
 import { useState, useEffect } from "react";
 
 export default function KampanyaBanner() {
-  const [secondsLeft, setSecondsLeft] = useState(3600 * 3 + 1200);
+  const [secondsLeft, setSecondsLeft] = useState(3600 * 3 + 1200); //3 saat 20 dk kalan süre
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setSecondsLeft((prev) => {
-        if (prev <= 1) {
-          return 3600 * 3 + 1200;
+  useEffect(() => { //sayfa yüklenince başlar
+    const timer = setInterval(() => { //zamanlayıcı timer değişkenine atandı
+      setSecondsLeft((prev) => { //secondsleft statini güncellemek için sayacın önceki halini alır
+        if (prev <= 1) { // eğer sayacın önceki hali 1'e eşit veya küçükse
+          return 3600 * 3 + 1200; //tekrar başa sarar 3 saat 20 dk
         }
-        return prev - 1;
+        return prev - 1; //sayaç bitmediyse kalan süreyi -1 azaltır
       });
-    }, 1000);
+    }, 1000); //kaç ms de bir çalışacağını söyler yani 1 saniye
 
     return () => {
-      clearInterval(timer);
+      clearInterval(timer); //component ekrandan kaldırılırsa sayacı temizler
     };
   }, []);
 

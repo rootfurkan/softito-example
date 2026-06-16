@@ -6,20 +6,20 @@ export default function SepetGezgini({
   onClose,
   onAdetGuncelle,
   onUrunCikar
-}) {
+}) { //dışarıdan aldığı propslar
 
   const toplamFiyat = useMemo(() => {
-    return sepet.reduce((toplam, item) => toplam + item.fiyat * item.adet, 0);
+    return sepet.reduce((toplam, item) => toplam + item.fiyat * item.adet, 0); //reduce ile sepetteki ürünleri tek tek dolaşır ve toplam fiyatı hesaplar
   }, [sepet]);
 
-  const kargoLimit = 1500;
-  const kargoUcreti = toplamFiyat >= kargoLimit || toplamFiyat === 0 ? 0 : 50;
-  const kalanTutar = Math.max(0, kargoLimit - toplamFiyat);
-  const ilerlemeYuzdesi = Math.min((toplamFiyat / kargoLimit) * 100, 100);
+  const kargoLimit = 1500; //ücretsiz kargo limiti
+  const kargoUcreti = toplamFiyat >= kargoLimit || toplamFiyat === 0 ? 0 : 50; //sepet toplamı 1500 tl veya daha fazlaysa kargo ücretsiz değilse 50 tl
+  const kalanTutar = Math.max(0, kargoLimit - toplamFiyat); //ücretsiz kargo için kalan tutarı hesaplar toplam sepet tutarından kargo limiti çıkararak
+  const ilerlemeYuzdesi = Math.min((toplamFiyat / kargoLimit) * 100, 100); // ilerleme çubuğunun yüzde kaç dolacağını hesaplar
 
-  const drawerClass = `sepet-drawer ${isOpen ? "sepet-drawer-visible" : "sepet-drawer-hidden"}`;
+  const drawerClass = `sepet-drawer ${isOpen ? "sepet-drawer-visible" : "sepet-drawer-hidden"}`; //sepetin arka plan blurunu açık kapalı durumuna göre class atıyor
 
-  if (!isOpen) return null;
+  if (!isOpen) return null; // eğer açık değilse hiçbir şey yapma
 
   return (
     <>

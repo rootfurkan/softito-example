@@ -1,24 +1,24 @@
 import { useEffect } from "react";
 
-export default function UrunDetayi({ product, onClose, onSepeteEkle }) {
+export default function UrunDetayi({ product, onClose, onSepeteEkle }) { //props aldık
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === "Escape") {
-        onClose();
+      if (e.key === "Escape") { //event aldık esc basınca ürün detayı kapansın diye
+        onClose(); // kullanıcından gelen key escape ise kapatır
       }
     };
-    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown); //penceredeki klavye hareketlerini dinledik
     
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keydown", handleKeyDown); //modal kapanınca klavye dinleyicisi kapatılır
     };
   }, [onClose]);
 
   useEffect(() => {
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = "hidden"; //modal açıkken sayfa arkada kaymasın
     
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = ""; //değilse hidden silinsin
     };
   }, []);
 
@@ -31,26 +31,28 @@ export default function UrunDetayi({ product, onClose, onSepeteEkle }) {
     };
   }, [product]);
 
-  const getInventoryWarning = () => {
-    if (!product) return null;
-    if (product.stok === 0) {
+  //bunlar debug için konsola logluyor
+
+  const getInventoryWarning = () => { //stok sayısına göre uyarı mesajı hazırlar
+    if (!product) return null; //ürün yoksa null döner bir şey yapmaz yani
+    if (product.stok === 0) { //eğer stok 0 sa
       return {
         level: "danger",
-        text: "Tükendi: Bu ürün geçici olarak temin edilemiyor."
+        text: "Tükendi: Bu ürün geçici olarak temin edilemiyor." 
       };
     }
-    if (product.stok < 5) {
+    if (product.stok < 5) { //sok sayısı 5 ten az kaldıysa
       return {
         level: "warning",
-        text: `Düşük Stok: Bu üründen son ${product.stok} adet kaldı!`
+        text: `Düşük Stok: Bu üründen son ${product.stok} adet kaldı!` //kaç adet kaldığını gösterir
       };
     }
-    return null;
+    return null; //stok 5 veya daha fazlaysa uyarı vermez boş döner
   };
 
-  const warning = getInventoryWarning();
+  const warning = getInventoryWarning(); //stok uyarısı fonksiyonu warning değişkenine atanır
 
-  if (!product) return null;
+  if (!product) return null; //eğer ürün yoksa component render etmez
 
   return (
     <div onClick={onClose} className="modal-maske">

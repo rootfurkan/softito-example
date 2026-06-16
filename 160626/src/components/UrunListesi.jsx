@@ -2,19 +2,19 @@ import { useState } from "react";
 
 export default function UrunListesi({
   products,
-  loading,
+  loading, //ürünlerin yüklenip yüklenmediğini gösterir
   error,
   activeCategory,
   onCategoryChange,
   onSelectProduct,
   onSepeteEkle,
   searchTerm
-}) {
+}) { //props aldık
 
-  const filteredProducts = products.filter(
+  const filteredProducts = products.filter( //ürünleri filtreleyip filterproducts değişkenine atadık
     (item) =>
       item.ad.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.marka.toLowerCase().includes(searchTerm.toLowerCase())
+      item.marka.toLowerCase().includes(searchTerm.toLowerCase()) //girilen ürün adını küçük harfe çevirip ürünlerde var mı diye arar veya marka ile uyuşuyor mu diye kontrol eder
   );
 
   return (
