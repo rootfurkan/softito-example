@@ -4,7 +4,9 @@ export default function Header({
   handleSearchSubmit,
   setSelectedCategory,
   setSearchQuery,
-  setView, //
+  setView,
+  cartCount, //sepetteki toplam ürün sayısı
+  onCartOpen //sepet modalını açan fonksiyon
 }) {
   const handleLogoClick = () => {
     setView("home");
@@ -37,9 +39,11 @@ export default function Header({
             <div className="action-item">
               <span>Giriş Yap</span>
             </div>
-            <div className="action-item">
+            <div className="action-item relative" onClick={onCartOpen}> {/*tıklayınca sepet modalı açılır*/}
               <span>Sepetim</span>
-              <span className="badge">0</span>
+              {cartCount > 0 && ( //ürün varsa badge göster
+                <span className="badge">{cartCount}</span>
+              )}
             </div>
           </div>
         </div>

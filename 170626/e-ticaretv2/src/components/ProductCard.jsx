@@ -1,4 +1,4 @@
-export default function ProductCard({product}){ //tüm ürünleri aldık ve ürünleri gerekli 
+export default function ProductCard({product, onAddToCart}){ //tüm ürünleri aldık ve ürünleri gerekli 
     //yerlere yerleştirdik resim başlık fiyat hepsi dinamik şekilde geliyor
     return(
         <>
@@ -18,7 +18,12 @@ export default function ProductCard({product}){ //tüm ürünleri aldık ve ür�
                     <span className="product-price">
                         {product.price} TL
                     </span>
-                    <button className="product-btn"><span>+</span></button>
+                      <button
+                        onClick={() => onAddToCart(product)}
+                        className="product-btn"
+                    >
+                        <span>+</span>
+                    </button>
                 </div>
             </div>
         </div>
