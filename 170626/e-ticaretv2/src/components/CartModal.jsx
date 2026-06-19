@@ -1,5 +1,5 @@
 export default function CartModal({ cart, onRemove, onUpdateQuantity, onClose }) { //sepet verisi ve kontrol fonksiyonlarını alır
-  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0); //fiyat x adet ile toplamı hesapla
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0); //fiyat bilmemkaç adet ile toplamı hesapla
 
   return (
     <div className="fixed inset-0 bg-black/50 z-50 flex justify-end">

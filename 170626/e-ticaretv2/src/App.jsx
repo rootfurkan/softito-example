@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import AddProductForm from "./components/AddProductForm";
 import { MOCK_PRODUCTS, MOCK_CATEGORIES } from "./productsMock";
 import CartModal from "./components/CartModal";
+
 import { useState } from "react";
 function App() {
   const [products, setProducts] = useState(MOCK_PRODUCTS);
@@ -59,7 +60,6 @@ const handleUpdateQuantity = (productId, delta) => { //adet artır/azalt, 0 olun
 const cartCount = sepet.reduce((sum, item) => sum + item.quantity, 0); //sepetteki toplam ürün sayısı
 
 
-
   const filteredProducts = products.filter((p) => { //state deki ürünleri filtrele
     const matchesCategory =
       selectedCategory === "Tümü" || p.category === selectedCategory;
@@ -87,7 +87,7 @@ const cartCount = sepet.reduce((sum, item) => sum + item.quantity, 0); //sepette
         setSelectedCategory={setSelectedCategory}
         setView={setView}
         cartCount={cartCount} //badge için ürün sayısını gönder
-        onCartOpen={() => setSepetAcik(true)} //sepet butonuna tıklayınca modalı aç
+        onCartOpen={() => setSepetAcik(true)} //sepet butonuna tıklayınca modalı açıyor yani statei falseden true ye döndürüyor
       />
       <Navbar
         categories={MOCK_CATEGORIES}
